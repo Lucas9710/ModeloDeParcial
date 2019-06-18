@@ -1,0 +1,101 @@
+using System;
+
+namespace Ejericicio1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int notas = 0, aprobados1A = 0, mes = 0, aprobados1B = 0, aprobados1C = 0, aprobados1D = 0, mayor = 0;
+            int[] meses = new int[12] ;
+
+            String nombreDelMaestro = "", grado = "", nombreDelMaestroMayor= "", gradoMayor = "" ;
+
+
+            Console.WriteLine("ingresa el grado, para terminar ingresar f");
+            grado = Console.ReadLine();
+
+
+            while (grado != "f")
+            {
+
+                
+                Console.WriteLine("ingresa el numero de mes");
+                mes = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("ingrese las notas");
+                notas = int.Parse(Console.ReadLine());
+
+                 Console.WriteLine("ingresar nombre del maestro");
+                 nombreDelMaestro = Console.ReadLine();
+
+                switch (grado)
+                {
+                    case "1A":
+                        if (notas >= 6)
+                        {
+                            aprobados1A++;
+
+                        }
+                       
+                        break;
+                    case "1B":
+                        if(notas >= 6)
+                        {
+                            aprobados1B++;
+                        }
+                        
+                        break;
+                    case "1C": if (notas >= 6)
+                        {
+                            aprobados1C++;
+                        }
+                        break;
+                    case "1D": if(notas >= 6)
+                        {
+                            aprobados1D++;
+                        }
+                        break;
+                    default: break;   
+                }
+
+                if(notas >= 6) {
+
+                    meses[mes - 1] = meses[mes - 1] + 1;
+
+                }
+
+
+
+               
+                    if (mayor < notas)
+                    {
+                        mayor = notas;
+                        nombreDelMaestroMayor = nombreDelMaestro;
+                        gradoMayor = grado;
+                    }
+
+
+
+
+                Console.WriteLine("ingresa el grado");
+                grado = Console.ReadLine();
+            }
+
+            Console.WriteLine("la cantidad de alumnos aprobados en el grado 1A: " + aprobados1A);
+            Console.WriteLine("la cantidad de alumnos aprobados en el grado 1B: " + aprobados1B);
+            Console.WriteLine("la cantidad de alumnos aprobados en el grado 1C: " + aprobados1C);
+            Console.WriteLine("la cantidad de alumnos aprobados en el grado 1D: " + aprobados1D);
+            Console.WriteLine("el maestro: " + nombreDelMaestroMayor + "registro la nota " + mayor + "es del grado" + gradoMayor);
+
+            for(int i = 1; i <= meses.Length; i++)
+            {
+                Console.WriteLine("la cantidad de aprobados en el mes: " + i + " es" + meses[i - 1]);
+            }
+
+            
+            Console.ReadKey(true);
+        }
+    }
+}
